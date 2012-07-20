@@ -6,6 +6,10 @@ At this stage the plugin shells out to node.js so it does require node.js to be 
 
 [Installing Node.js](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
 
+[RequireJS optimization docs](http://requirejs.org/docs/optimization.html)
+
+[RequireJS documentation](http://requirejs.org/)
+
 Adding the plugin:
 
 ```scala
@@ -35,6 +39,16 @@ mainConfigFile in (Compile, requireJs) <<=
   (sourceDirectory in (Compile, requireJs), baseUrl in (Compile, requireJs))((a, b) => Some(a / b / "main.js"))
 ```
 
+The `buildProfile` key allows you to configure the r.js tool.
+All of the possible configuration options are discussed in this [example.build.js](https://github.com/jrburke/r.js/blob/master/build/example.build.js).
+Be sure to read the [require.js optimization docs](http://requirejs.org/docs/optimization.html) too.
+
+In addition to the buildProfile key the appDir, mainConfigFile, dir and baseUrl are configurable through sbt too.
+To configure the appDir you have to set the `sourceDirectory` key.
+To configure the dir you have to set the `target` key, the dir is an intermediate step for this plugin.
+To configure the mainConfigFile you have to set the `mainConfigFile` key.
+To configure the baseUrl you have to set the `baseUrl` key.
+
 *Defaults*
 
 ```scala
@@ -44,8 +58,8 @@ webApp in requireJs <<= (sourceDirectory in c)(_ / "webapp")
 // The location of the source files for the require.js app
 sourceDirectory in requireJs <<= (sourceDirectory in c)(_ / "requirejs")
 
-// The location of the r.js file
-rjs in requireJs <<= (target in c)(_ / "r.js")
+// The location of the r.js file, when none is specified it uses the bundled version of r.js
+rjs in requireJs := None
 
 // The location of the node.js binary
 nodeBin in requireJs := ("which node" !!).trim

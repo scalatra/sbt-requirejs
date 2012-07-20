@@ -32,7 +32,7 @@ object RequireJsPlugin extends Plugin {
     outputFile
   }
   private def unpackRjsFromResources(target: File) =
-    copyFromClassPathToFilesystem("/requirejs/r.js", target / "r.js").getAbsolutePath
+    copyFromClassPathToFilesystem("/requirejs/r.js", target).getAbsolutePath
 
   private def optimizeTask =
     (target in requireJs,
@@ -41,7 +41,7 @@ object RequireJsPlugin extends Plugin {
      includeFilter in requireJs,
      excludeFilter in requireJs,
      createBuildProfile in requireJs, streams) map { (tgt, rjsf, node, incl, excl, bp, log) =>
-      val tool = rjsf.filter(_.exists).map(_.getAbsolutePath).getOrElse(unpackRjsFromResources(tgt))
+      val tool = rjsf.filter(_.exists).map(_.getAbsolutePath).getOrElse(unpackRjsFromResources(tgt / "r.js"))
       val t = tgt.getAbsoluteFile
       if (!t.exists()) IO.createDirectory(t.getAbsoluteFile)
       val cmd = node + " " + tool + " -o " + bp.getAbsolutePath
