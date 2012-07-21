@@ -17,7 +17,7 @@ resolvers += Resolver.url("sbt-plugin-releases",
   new URL("http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/"))(
     Resolver.ivyStylePatterns)
 
-addSbtPlugin("org.scalatra.requirejs" % "sbt-requirejs" % "0.0.2")
+addSbtPlugin("org.scalatra.requirejs" % "sbt-requirejs" % "0.0.3")
 ```
 
 Using the plugin:

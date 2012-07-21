@@ -6,11 +6,13 @@ name := "sbt-requirejs"
 
 organization := "org.scalatra.requirejs"
 
-version := "0.0.3-SNAPSHOT"
+version := "0.0.3"
 
 libraryDependencies ++= Seq(
   "net.liftweb" %% "lift-json" % "2.4"
 )
+
+publishMavenStyle := false
 
 publishTo <<= (version) { version: String =>
    val scalasbt = "http://scalasbt.artifactoryonline.com/scalasbt/"
