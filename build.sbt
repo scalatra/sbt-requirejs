@@ -6,7 +6,7 @@ name := "sbt-requirejs"
 
 organization := "org.scalatra.requirejs"
 
-version := "0.0.3"
+version := "0.0.4-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   "net.liftweb" %% "lift-json" % "2.4"

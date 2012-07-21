@@ -126,7 +126,7 @@ object RequireJsPlugin extends Plugin {
   def requireJsSettings: Seq[Setting[_]] = requireJsSettingsIn(Compile) ++ requireJsSettingsIn(Test)
 
   private def requireJsSettings0: Seq[Setting[_]] = Seq(
-    unmanagedSources in requireJs <<= (sourceDirectory in requireJs, streams) map { (dir, _) => dir.get },
+    unmanagedSources in requireJs <<= (sourceDirectory in requireJs, streams) map { (dir, _) => (dir ** "*").get },
     createBuildProfile in requireJs <<= generateBuildProfile,
     optimize in requireJs <<= optimizeTask,
     clean in requireJs <<= cleanTask,
