@@ -40,11 +40,11 @@ mainConfigFile in (Compile, requireJs) <<=
 ```
 
 The `buildProfile` key allows you to configure the r.js tool.
-All of the possible configuration options are discussed in this [example.build.js](https://github.com/jrburke/r.js/blob/master/build/example.build.js).  
+All of the possible configuration options are discussed in this [example.build.js](https://github.com/jrburke/r.js/blob/master/build/example.build.js).
 Be sure to read the [require.js optimization docs](http://requirejs.org/docs/optimization.html) too.
 
 In addition to the buildProfile key the appDir, mainConfigFile, dir and baseUrl are configurable through sbt too.
-To configure the appDir you have to set the `sourceDirectory` key.
+To configure the appDir you have to set the `sourceDirectory` key (defaults to `src/main/requirejs`).
 To configure the dir you have to set the `target` key, the dir is an intermediate step for this plugin.
 To configure the mainConfigFile you have to set the `mainConfigFile` key.
 To configure the baseUrl you have to set the `baseUrl` key.

@@ -113,8 +113,7 @@ object RequireJsPlugin extends Plugin {
       excludeFilter in requireJs := "build.txt" || (".*" - ".") || "_*" || HiddenFileFilter,
       watchSources in requireJs <<= (unmanagedSources in requireJs)
     )) ++ Seq(
-      watchSources <++= (unmanagedSources in requireJs in c),
-      compile in c <<= (compile in c).dependsOn(requireJs in c)
+      watchSources <++= (unmanagedSources in requireJs in c)
     )
 
   private def cleanTask =
