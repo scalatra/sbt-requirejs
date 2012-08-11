@@ -46,7 +46,7 @@ object RequireJsPlugin extends Plugin {
       if (!t.exists()) IO.createDirectory(t.getAbsoluteFile)
       val cmd = node + " " + tool + " -o " + bp.getAbsolutePath
       cmd ! log.log
-      tgt.descendentsExcept(incl, excl).get
+      tgt.descendantsExcept(incl, excl).get
     }
 
   private def cleanBuildCache(buildCache: File, fallback: Seq[File], webapp: File) {

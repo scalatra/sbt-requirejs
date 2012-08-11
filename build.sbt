@@ -8,8 +8,10 @@ organization := "org.scalatra.requirejs"
 
 version := "0.0.4-SNAPSHOT"
 
+scalacOptions := Seq("-optimise", "-deprecation")
+
 libraryDependencies ++= Seq(
-  "net.liftweb" %% "lift-json" % "2.4"
+  "net.liftweb" % "lift-json_2.9.1" % "2.4"
 )
 
 publishMavenStyle := false
@@ -48,7 +50,7 @@ homepage := Some(url("https://github.com/scalatra/sbt-requirejs"))
 
 startYear := Some(2012)
 
-licenses := Seq(("MIT", url("http://github.com/scalatra/sbt-requirejs/raw/HEAD/LICENSE")))
+licenses := Seq(("MIT", url("https://raw.github.com/scalatra/sbt-requirejs/master/LICENSE")))
 
 pomExtra <<= (pomExtra, name, description) {(pom, name, desc) => pom ++ Group(
   <scm>
