@@ -12,6 +12,14 @@ At this stage the plugin shells out to node.js so it does require node.js to be 
 
 Adding the plugin:
 
+For *sbt 0.12.x*:
+
+```scala
+addSbtPlugin("org.scalatra.requirejs" % "sbt-requirejs" % "0.0.3")
+```
+
+For *sbt 0.11.3*:
+
 ```scala
 resolvers += Resolver.url("sbt-plugin-releases",
   new URL("http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/"))(
